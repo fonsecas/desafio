@@ -1,17 +1,17 @@
 package com.picpay.desafio.android
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.picpay.desafio.android.databinding.ActivityMainBinding
 import com.picpay.desafio.android.entity.User
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: UserListAdapter
 
     private lateinit var binding: ActivityMainBinding
-    val model: MainViewModel by viewModels()
+    val _model: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun subscribeUi() {
-        model.users.observe(this, ::onUserReceived)
+        _model.users.observe(this, ::onUserReceived)
     }
     private fun setupAdapter() {
         adapter = UserListAdapter()

@@ -8,13 +8,14 @@ import com.google.gson.GsonBuilder
 import com.picpay.desafio.android.client.PicPayService
 import com.picpay.desafio.android.entity.User
 import okhttp3.OkHttpClient
+import org.koin.core.KoinComponent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainViewModel : ViewModel() {
+class MainViewModel() : ViewModel(), KoinComponent {
 
     val users: LiveData<List<User>> get() = _users
     private val _users by lazy { MutableLiveData<List<User>>() }
