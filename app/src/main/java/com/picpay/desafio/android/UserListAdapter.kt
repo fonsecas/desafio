@@ -5,13 +5,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.picpay.desafio.android.entity.User
 
-class UserListAdapter : ListAdapter<User, UserListItemViewHolder>(DiffUtilCallback) {
+class UserListAdapter : ListAdapter<User, UserListIViewHolder>(DiffUtilCallback) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListItemViewHolder {
-        return UserListItemViewHolder.inflate(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListIViewHolder {
+        return UserListIViewHolder.inflate(parent)
     }
 
-    override fun onBindViewHolder(holder: UserListItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserListIViewHolder, position: Int) {
         holder.bind(
             currentList[position]
         )

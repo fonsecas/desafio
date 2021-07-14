@@ -9,7 +9,7 @@ import com.picpay.desafio.android.entity.User
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
-class UserListItemViewHolder(
+class UserListIViewHolder(
     private val binding: ListItemUserBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -32,7 +32,7 @@ class UserListItemViewHolder(
     }
 
     companion object {
-        fun inflate(parent: ViewGroup) = UserListItemViewHolder(
+        fun inflate(parent: ViewGroup) = UserListIViewHolder(
             ListItemUserBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
