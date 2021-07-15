@@ -2,5 +2,32 @@
     <string name="app_name">PicPay</string>
     <string name="title">Contatos</string>
     <string name="error">Ocorreu um erro. Tente novamente.</string>
-
+    <!--Global Strings-->
+    <string name="global_try_again">Tentar novamente</string>
+    <string name="global_ok">OK</string>
+    <string name="global_send">Enviar</string>
+    <string name="global_error">Erro</string>
+    <string name="global_cancel">Cancelar</string>
+    <!--Error Strings-->
+    <string name="error_title">Oops!</string>
+    <string name="error_unauthorized">Não pudemos completar a operação. Você não está autorizado</string>
+    <string name="error_too_many_requests">Limite de requisições atingido. Tente novamente mais tarde</string>
+    <string name="error_timeout">Conexão expirou. Tente novamente mais tarde</string>
+    <string name="error_network">Não foi possível completar a operação. Verifique sua conexão e tente novamente</string>
+    <string name="error_unexpected">Não foi possível completar a operação. Tente novamente mais tarde.</string>
+    <!--List Characters-->
+    <string name="character_name">Nome</string>
+    <string name="character_search_label">Nome do Personagem</string>
+    <string name="list_characters_title">TESTE FRONT END</string>
+    <string name="list_characters_headline">BUSCA MARVEL</string>
+    <string name="empty_list_helper_text">Não encontramos nenhum personagem com sua pesquisa :( \n\n Tente novamente com outra busca!</string>
+    <!--Character Details-->
+    <string name="description_label">Descrição</string>
+    <string name="urls_label">Urls disponívels</string>
+    <string name="go_to_page">Ir para %s</string>
+    <string name="link_to">Link para "%s"</string>
+    <string name="activity_character_details_no_description">Sem descrição disponível</string>
+    <string name="detail_url_type_name">detalhes</string>
+    <string name="wiki_url_type_name">wiki</string>
+    <string name="comic_url_type_name">quadrinhos</string>
 </resources>
