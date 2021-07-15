@@ -11,7 +11,7 @@ class AuthInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val timestamp = Date().time.toString()
-        val encryptionString = timestamp + BuildConfig.PRIVATE_KEY + BuildConfig.ACCESS_KEY
+        //val encryptionString = timestamp + BuildConfig.PRIVATE_KEY + BuildConfig.ACCESS_KEY
         val originalUrl = chain.request().url
         val queriedUrl = originalUrl
 //            .newBuilder()

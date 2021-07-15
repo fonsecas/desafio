@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribeUi() {
         _viewModel.users.observe(this, ::onUserReceived)
+        _viewModel.placeholder.observe(this) { binding.placeholderView.setPlaceholder(it) }
     }
 
     private fun setupAdapter() {
