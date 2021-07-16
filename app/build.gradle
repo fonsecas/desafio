@@ -12,10 +12,8 @@ android {
         versionName "1.0"
         buildConfigField "String", "API_ENDPOINT", "\"https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/\""
         buildConfigField "String", "DATABASE_NAME", "\"pickpay-db\""
-
-      //  vectorDrawables.useSupportLibrary = true
-
-        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildFeatures {
         dataBinding true
@@ -70,4 +68,17 @@ dependencies {
     // Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Required -- JUnit 4 framework
+    def arch_version = "2.1.0"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+    testImplementation "org.junit.platform:junit-platform-runner:1.6.2"
+    testImplementation 'org.mockito:mockito-core:3.2.4'
+    testImplementation "com.google.truth:truth:1.1.2"
+    testImplementation "com.squareup.okhttp3:mockwebserver:4.9.0"
+    testImplementation 'org.assertj:assertj-core:3.13.2'
+    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+
 }

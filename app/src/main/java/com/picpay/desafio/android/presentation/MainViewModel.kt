@@ -14,44 +14,18 @@ class MainViewModel constructor(
     val users: LiveData<List<User?>> get() = _users
 
     private val _users by lazy { MutableLiveData<List<User?>>() }
-//
-//    private val url = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
-//
-//    private val gson: Gson by lazy { GsonBuilder().create() }
-//
-//    private val okHttp: OkHttpClient by lazy {
-//        OkHttpClient.Builder()
-//            .build()
-//    }
-//
-//    private val retrofit: Retrofit by lazy {
-//        Retrofit.Builder()
-//            .baseUrl(url)
-//            .client(okHttp)
-//            .addConverterFactory(GsonConverterFactory.create(gson))
-//            .build()
-//    }
-//
-//    private val service: ApiService by lazy {
-//        retrofit.create(ApiService::class.java)
-//    }
 
     init {
-        launchDataLoad(onFailure = ::onFailure) {
-                _users.value = getUsersList.execute()
-        }
-//        service.getUsers()
-//            .enqueue(object : Callback<List<User>> {
-//                override fun onFailure(call: Call<List<User>>, t: Throwable) {
-//
-//                }
-//
-//                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-//                    _users.value = response.body()!!
-//                }
-//            })
+        getUsers()
     }
+
+    fun getUsers() {
+        launchDataLoad(onFailure = ::onFailure) {
+            _users.value = getUsersList.execute()
+        }
+    }
+
     private fun onFailure(throwable: Throwable) {
-        setDialog(throwable){}
+        setDialog(throwable) {}
     }
 }

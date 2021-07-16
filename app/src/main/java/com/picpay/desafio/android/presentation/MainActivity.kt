@@ -8,7 +8,6 @@ import com.picpay.desafio.android.databinding.ActivityMainBinding
 import com.picpay.desafio.android.domain.entity.user.User
 import org.koin.android.viewmodel.ext.android.viewModel
 
-
 class MainActivity : AppCompatActivity() {
 
     private val _viewModel: MainViewModel by viewModel()
