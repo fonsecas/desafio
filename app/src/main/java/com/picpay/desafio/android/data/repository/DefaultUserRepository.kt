@@ -8,7 +8,7 @@ class DefaultUserRepository constructor(
     private val apiClient: ApiClient
 ) : UserRepository {
 
-    override suspend fun getUsersList(): List<User?>? {
+    override suspend fun getUsersList(): List<User>? {
         return apiClient.getUsersList()?.map { it.toDomainObject() }
     }
 }

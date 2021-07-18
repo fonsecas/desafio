@@ -7,7 +7,7 @@ class ApiClient constructor(
     private val apiService: ApiService
 ) : RequestHandler() {
 
-    suspend fun getUsersList(): List<ApiUser>? {
+    suspend fun getUsersList(): List<ApiUser>?{
         return makeRequest(apiService.getUsersList())
     }
 }

@@ -11,21 +11,31 @@ class MainViewModel constructor(
     private val getUsersList: GetUsersList
 ) : BaseViewModel() {
 
-    val users: LiveData<List<User?>> get() = _users
+    val users: LiveData<MainViewState> get() = _users
 
-    private val _users by lazy { MutableLiveData<List<User?>>() }
+    private val _users by lazy { MutableLiveData<MainViewState>() }
 
     init {
         getUsers()
     }
 
     fun getUsers() {
+        _users.value = MainViewState.Loading
         launchDataLoad(onFailure = ::onFailure) {
-            _users.value = getUsersList.execute()
+            getUsersList.execute()?.apply {
+                _users.value = MainViewState.Success(this)
+            }
         }
     }
+
 
     private fun onFailure(throwable: Throwable) {
         setDialog(throwable) {}
     }
+
+sealed class MainViewState {
+    object Loading : MainViewState()
+    data class Error(val throwable: Throwable) : MainViewState()
+    data class Success(val data: List<User?>?) : MainViewState()
+}
 }
