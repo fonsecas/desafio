@@ -8,34 +8,25 @@ import com.picpay.desafio.android.presentation.util.base.BaseViewModel
 
 
 class MainViewModel constructor(
-    private val getUsersList: GetUsersList
+    private val interector: GetUsersList,
 ) : BaseViewModel() {
 
-    val users: LiveData<MainViewState> get() = _users
+    val users: LiveData<List<User?>> get() = _users
 
-    private val _users by lazy { MutableLiveData<MainViewState>() }
+    private val _users by lazy { MutableLiveData<List<User?>>() }
 
     init {
         getUsers()
     }
 
     fun getUsers() {
-        _users.value = MainViewState.Loading
         launchDataLoad(onFailure = ::onFailure) {
-            getUsersList.execute()?.apply {
-                _users.value = MainViewState.Success(this)
-            }
+            _users.value = interector.getUsersList()
         }
     }
-
 
     private fun onFailure(throwable: Throwable) {
         setDialog(throwable) {}
     }
 
-sealed class MainViewState {
-    object Loading : MainViewState()
-    data class Error(val throwable: Throwable) : MainViewState()
-    data class Success(val data: List<User?>?) : MainViewState()
-}
 }

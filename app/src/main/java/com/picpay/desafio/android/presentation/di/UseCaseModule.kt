@@ -5,6 +5,6 @@ import org.koin.dsl.module
 
 fun useCaseModule() = module {
     single {
-        GetUsersList(get())
+        GetUsersList()
     }
 }

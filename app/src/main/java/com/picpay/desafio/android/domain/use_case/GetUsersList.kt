@@ -1,10 +1,10 @@
 package com.picpay.desafio.android.domain.use_case
 
 import com.picpay.desafio.android.domain.boundary.UserRepository
+import com.picpay.desafio.android.domain.entity.user.User
 
-class GetUsersList constructor(
-    private val userRepository: UserRepository
-) {
-
-    suspend fun execute() = userRepository.getUsersList()
+class GetUsersList : UserRepository {
+    override suspend fun getUsersList(): List<User?>? {
+        return getUsersList()
+    }
 }
