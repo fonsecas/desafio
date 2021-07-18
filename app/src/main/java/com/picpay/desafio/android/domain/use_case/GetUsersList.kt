@@ -3,8 +3,12 @@ package com.picpay.desafio.android.domain.use_case
 import com.picpay.desafio.android.domain.boundary.UserRepository
 import com.picpay.desafio.android.domain.entity.user.User
 
-class GetUsersList : UserRepository {
+interface IGetUsersList {
+    suspend fun getUsersList(): List<User?>?
+}
+
+class GetUsersList(private val repository: UserRepository) : IGetUsersList {
     override suspend fun getUsersList(): List<User?>? {
-        return getUsersList()
+        return repository.getUsersList()
     }
 }

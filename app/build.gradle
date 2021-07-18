@@ -15,6 +15,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildFeatures {
         dataBinding true
     }
@@ -80,5 +81,4 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.13.2'
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCore"
     testImplementation "androidx.arch.core:core-testing:$arch_version"
-
 }

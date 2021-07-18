@@ -1,9 +1,10 @@
 package com.picpay.desafio.android.presentation
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.picpay.desafio.android.domain.CoroutinesTestRule
 import com.picpay.desafio.android.domain.entity.user.User
-import com.picpay.desafio.android.domain.use_case.GetUsersList
+import com.picpay.desafio.android.domain.use_case.IGetUsersList
 import com.picpay.desafio.android.src.usersListMock
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -23,10 +24,13 @@ internal class MainViewModelTest {
     @get:Rule
     val testCoroutineRule = CoroutinesTestRule()
 
+    @get:Rule
+    val rule = InstantTaskExecutorRule()
+
     private lateinit var viewModel: MainViewModel
 
     @Mock
-    private lateinit var interector: GetUsersList
+    private lateinit var interector: IGetUsersList
 
     @Mock
     private lateinit var viewStateObserver: Observer<List<User?>>
