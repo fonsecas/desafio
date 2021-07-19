@@ -5,11 +5,11 @@ import com.google.gson.GsonBuilder
 import com.picpay.desafio.android.BuildConfig
 import com.picpay.desafio.android.data.client.ApiClient
 import com.picpay.desafio.android.data.client.ApiService
-import com.picpay.desafio.android.data.util.request.AuthInterceptor
+import com.picpay.desafio.android.data.util.request.SaveCacheInterceptor
 import com.picpay.desafio.android.data.util.resource.API_DATE_FORMAT
 import com.picpay.desafio.android.data.util.resource.API_ENDPOINT_NAMED
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -17,12 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 fun networkingModule() = module {
     single {
-        OkHttpClient.Builder()
-            .addInterceptor(AuthInterceptor())
-            .addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
-            .build()
+        SaveCacheInterceptor(androidContext())
     }
 
     single {

@@ -6,7 +6,6 @@ import com.picpay.desafio.android.domain.use_case.IGetUsersList
 import com.picpay.desafio.android.presentation.util.arch.SingleLiveEvent
 import com.picpay.desafio.android.presentation.util.base.BaseViewModel
 
-
 class MainViewModel constructor(
     private val interector: IGetUsersList,
 ) : BaseViewModel() {

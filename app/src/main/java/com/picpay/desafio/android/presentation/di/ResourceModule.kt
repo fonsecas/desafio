@@ -8,4 +8,5 @@ fun resourceModule() = module {
     single {
         ErrorHandler(get())
     }
+
 }

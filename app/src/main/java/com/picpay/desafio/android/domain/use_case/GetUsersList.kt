@@ -12,3 +12,5 @@ class GetUsersList(private val repository: UserRepository) : IGetUsersList {
         return repository.getUsersList()
     }
 }
+
+
