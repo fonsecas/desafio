@@ -46,17 +46,21 @@ internal class MainViewModelTest {
         }
     }
 
+
+    //  |  Casos |                     Descrição                                              |
+    //  |:-------|:---------------------------------------------------------------------------|
+    //  | Caso 3 |   Dado um usuário acessando a listagem de usuários                         |
+    //  |        |   Quando ele solicitar pelos usuários                                      |
+    //  |        |   Então devemos assegurar que o sinal disparado é igual ao esperado        |
+
     @Test
-    fun `should success when getUsersList returns proper data`() {
+    fun case3() {
         runBlocking {
 
-            //Antes
             `when`(interector.getUsersList()).thenReturn(usersListMock)
 
-            //Quando
             viewModel.getUsers()
 
-            //Entao
             verify(viewStateObserver).onChanged(usersListMock)
         }
     }

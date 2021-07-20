@@ -51,9 +51,10 @@ internal class GetUsersListTest {
 
     //  |  Casos |                     Descrição                                              |
     //  |:-------|:---------------------------------------------------------------------------|
-    //  | Caso 2 |   Dado um metodo na camada de domain                                       |
-    //  |        |   Quando ele chamar esse metodo                                            |
-    //  |        |   Então devemos assegurar que ele foi chamado no repositorio               |
+    //  | Caso 2 |   Dado um usuário acessando a listagem de usuários                         |
+    //  |        |   Quando ele solicitar pelos usuários                                      |
+    //  |        |   Então devemos assegurar que o repositorio sera chamado                   |
+
     @Test
     fun case2() {
         runBlocking {
