@@ -2,7 +2,7 @@ package com.picpay.desafio.android.src
 
 import com.picpay.desafio.android.domain.entity.user.User
 
- val usersListMock = listOf(
+ val usersListMock : List<User?>? = listOf(
     User(
         1,
         "img",

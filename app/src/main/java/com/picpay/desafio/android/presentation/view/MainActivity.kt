@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.presentation
+package com.picpay.desafio.android.presentation.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

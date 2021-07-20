@@ -8,7 +8,8 @@ val cacheSize = (5 * 1024 * 1024).toLong()
 
 fun hasNetwork(context: Context): Boolean? {
     var isConnected: Boolean? = false
-    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
     if (activeNetwork != null && activeNetwork.isConnected)
         isConnected = true

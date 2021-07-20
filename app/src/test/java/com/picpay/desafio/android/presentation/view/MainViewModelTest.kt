@@ -1,10 +1,11 @@
-package com.picpay.desafio.android.presentation
+package com.picpay.desafio.android.presentation.view
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.picpay.desafio.android.domain.CoroutinesTestRule
 import com.picpay.desafio.android.domain.entity.user.User
-import com.picpay.desafio.android.domain.use_case.IGetUsersList
+import com.picpay.desafio.android.domain.interector.IGetUsersList
+import com.picpay.desafio.android.presentation.util.arch.SingleLiveEvent
 import com.picpay.desafio.android.src.usersListMock
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -16,6 +17,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
+
 
 @RunWith(MockitoJUnitRunner::class)
 internal class MainViewModelTest {
@@ -33,7 +35,7 @@ internal class MainViewModelTest {
     private lateinit var interector: IGetUsersList
 
     @Mock
-    private lateinit var viewStateObserver: Observer<List<User?>>
+    private lateinit var viewStateObserver: Observer<List<User?>?>
 
     @Before
     fun start() {
@@ -45,7 +47,7 @@ internal class MainViewModelTest {
     }
 
     @Test
-    fun case4() {
+    fun `should success when getUsersList returns proper data`() {
         runBlocking {
 
             //Antes
@@ -58,4 +60,5 @@ internal class MainViewModelTest {
             verify(viewStateObserver).onChanged(usersListMock)
         }
     }
+
 }

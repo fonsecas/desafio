@@ -6,7 +6,7 @@ import com.picpay.desafio.android.data.util.network.hasNetwork
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 
-fun SaveCacheInterceptor(context: Context) : OkHttpClient {
+fun CustomInterceptor(context: Context) : OkHttpClient {
 
     val cacheApp = Cache(context.cacheDir, cacheSize)
 

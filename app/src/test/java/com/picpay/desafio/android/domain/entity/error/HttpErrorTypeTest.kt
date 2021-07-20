@@ -4,14 +4,8 @@ import org.junit.Test
 
 internal class HttpErrorTypeTest {
 
-    //  |  Casos |                     Descrição                                              |
-    //  |:-------|:---------------------------------------------------------------------------|
-    //  | Caso 1 |   Dado uma classe User da camada de data                                   |
-    //  |        |   Quando mapearmos ela para o seu correspondente na camada de domain       |
-    //  |        |   Entao devemos assegurar que o objeto resultado é o esperado              |
-
     @Test
-    fun case1() {
+    fun `when errorCore is 401 then  HttpErrorType should be UNAUTHORIZED`() {
         val expectedError = HttpErrorType.UNAUTHORIZED
 
         val currentSUT = HttpErrorType.getErrorForCode(401)
@@ -20,7 +14,7 @@ internal class HttpErrorTypeTest {
     }
 
     @Test
-    fun case2() {
+    fun `when errorCore is 409 then  HttpErrorType should be TOO_MANY_REQUESTS`() {
         val expectedError = HttpErrorType.TOO_MANY_REQUESTS
 
         val currentSUT = HttpErrorType.getErrorForCode(409)
